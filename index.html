@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <style>
+      h1 {
+        margin-top: 3em;
+        margin-bottom: 1em;
+      }
+
+      .spacer {
+        padding: 30px;
+      }
+
+      .scene {
+        height: 350px;
+      }
+
+      .scene h3 {
+        text-align: center;
+      }
+      
+      .number {
+        text-align: center;
+        margin:auto;
+        width: 66%;
+        height: 28%;
+        background-color: #ffd9f8;
+        border-top: 5px dotted #82174d;
+        font-size:1.5rem;
+      }
+      
+      .shadow {
+        background-color: #888ad0;
+        z-index: 0;
+        left: -17px;
+        top: 26px;
+      }
+      .loader,
+      .loader:before,
+      .loader:after {
+        background: #f56f79;
+        -webkit-animation: load1 1s infinite ease-in-out;
+        animation: load1 1s infinite ease-in-out;
+        width: 0.4rem;
+        height: 4em;
+      }
+      .loader {
+        color: #f56f79;
+        margin: 2px auto;
+        font-size: 0.2rem;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+      }
+      .loader:before,
+      .loader:after {
+        position: absolute;
+        top: 0;
+        content: '';
+      }
+      .loader:before {
+        left: -1.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+      }
+      .loader:after {
+        left: 1.5em;
+      }
+      @-webkit-keyframes load1 {
+        0%,
+        80%,
+        100% {
+          box-shadow: 0 0;
+          height: 2em;
+        }
+        40% {
+          box-shadow: 0 -2em;
+          height: 3em;
+        }
+      }
+      @keyframes load1 {
+        0%,
+        80%,
+        100% {
+          box-shadow: 0 0;
+          height: 2em;
+        }
+        40% {
+          box-shadow: 0 -2em;
+          height: 3em;
+        }
+      }
+
+
+    </style>
+</head>
+<body style="background: #eef2fe; font-family: 'Arvo', serif;">
+  <div class="container">
+    <h1>This is a simple helloworld example.  Returning "hello world" string from a Near Contract!</h1>
+    <h2>Based on Rust Counter Example from examples.near.org</h2>
+    
+    <div class="spacer"></div>
+
+    <div class="sign-in" style="display: none;">
+      <p>You'll need to sign in to call contract methods:</p>
+      <button class="btn btn-primary" style="background-color: #0072CE;">Sign In</button>
+    </div>
+
+    <div class="after-sign-in" style="display: none;">
+      <div class="scene">
+        <h3>Result from calling contract's get_helloworld():</h3>
+        <div id="show" class="number"></div>
+      </div>
+        
+        <div class="sign-out">
+          <button class="btn btn-primary" style="background-color: #0072CE;">Sign Out</button>
+        </div>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>
