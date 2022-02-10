@@ -1,0 +1,14 @@
+the contract file is at:
+
+https://github.com/hackathonprojs/near-rust-helloworld/blob/master/contract/src/lib.rs
+
+method: get_helloworld()
+
+pub fn get_helloworld(&self, message: String) -> String {
+        let mut hello = String::from("hello world, ");
+        hello.push_str(&message);
+        return hello;
+    }
+
+
+Unit test is at the end of the file.
