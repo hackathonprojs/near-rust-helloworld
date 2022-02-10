@@ -1,22 +1,32 @@
-Counter example in Rust
+Hello World example in Rust
 =================================
 
 [![Open in Gitpod!](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/near-examples/rust-counter)
 
 <!-- MAGIC COMMENT: DO NOT DELETE! Everything above this line is hidden on NEAR Examples page -->
 
+## 
+this is forked from Counter example in Rust (https://github.com/near-examples/rust-counter).  Modified to do hello world.  
+
+lib.rs
+- add get_helloworld(), add corresponding unit test
+- remove other methods, remove corresponding unit test
+
+remove src/tests/sim/test.rs
+
+main.js, index.html
+- add call to get_helloworld(), remove call to increment, decrement, get_num().  
+
 ## Description
 
-This contract implements simple counter backed by storage on blockchain.
-Contract in `contract/src/lib.rs` provides methods to increment / decrement counter and get it's current value or reset.
-
-Plus and minus buttons increase and decrease value correspondingly. When button L is toggled, a little light turns on, just for fun. RS button is for reset. LE and RE buttons to let the robot wink at you.
+This contract implements bare minimum hello world
+Contract in `contract/src/lib.rs` provides methods to get a hello world string.
 
 ## To Run
-Open in the Gitpod link above or clone the repository.
+Open in the Gitpod link above or clone the repository.  (not tested.  I only tested the regular version)
 
 ```
-git clone https://github.com/near-examples/rust-counter
+git clone https://github.com/hackathonprojs/near-rust-helloworld
 ```
 
 
@@ -70,7 +80,7 @@ In the project root, login with `near-cli` by following the instructions after t
 near login
 ```
 
-Modify the top of `src/config.js`, changing the `CONTRACT_NAME` to be the NEAR account that was just used to log in.
+Modify the top of `src/config.js`, changing the `CONTRACT_NAME` to be the NEAR account that was just used to log in.  currently set to `helloworld.gameofstake.testnet`
 
 ```javascript
 …
