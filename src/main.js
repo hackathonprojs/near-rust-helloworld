@@ -15,6 +15,7 @@ async function connect(nearConfig) {
 
   // Needed to access wallet login
   window.walletConnection = new nearAPI.WalletConnection(window.near);
+  window.accountId = window.walletConnection.getAccountId();
 
   // Initializing our contract APIs by contract name and configuration.
   window.contract = await new nearAPI.Contract(window.walletConnection.account(), nearConfig.contractName, {
@@ -49,7 +50,7 @@ function updateUI() {
     Array.from(document.querySelectorAll('.sign-in')).map(it => it.style = 'display: block;');
   } else {
     Array.from(document.querySelectorAll('.after-sign-in')).map(it => it.style = 'display: block;');
-    contract.get_helloworld({"message": "gameofstake.testnet"}).then(helloworld => {
+    contract.get_helloworld({"message": window.accountId}).then(helloworld => {
       document.querySelector('#show').classList.replace('loader','number');
       document.querySelector('#show').innerText = helloworld === undefined ? 'waiting...' : helloworld;
     }).catch(err => errorHelper(err));
