@@ -1,4 +1,4 @@
-Getting Started Challenge #4: Hello world frontend
+Getting Started Challenge #4: Hello World frontend
 
 screenshot of demo:
 https://github.com/hackathonprojs/near-rust-helloworld/blob/master/helloworld_frontend.png
@@ -12,5 +12,7 @@ based on rust counter example
 
 code for the helloworld contract:
 https://github.com/hackathonprojs/near-rust-helloworld/blob/master/contract/src/lib.rs
+
+
 
 
