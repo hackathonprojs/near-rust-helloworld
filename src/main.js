@@ -19,9 +19,9 @@ async function connect(nearConfig) {
   // Initializing our contract APIs by contract name and configuration.
   window.contract = await new nearAPI.Contract(window.walletConnection.account(), nearConfig.contractName, {
     // View methods are read-only – they don't modify the state, but usually return some value
-    viewMethods: ['get_num'],
+    viewMethods: ['get_helloworld'],
     // Change methods can modify the state, but you don't receive the returned value when called
-    changeMethods: ['increment', 'decrement', 'reset'],
+    changeMethods: [],
     // Sender is the account ID to initialize transactions.
     // getAccountId() will return empty string if user is still unauthorized
     sender: window.walletConnection.getAccountId()
@@ -49,7 +49,7 @@ function updateUI() {
     Array.from(document.querySelectorAll('.sign-in')).map(it => it.style = 'display: block;');
   } else {
     Array.from(document.querySelectorAll('.after-sign-in')).map(it => it.style = 'display: block;');
-    contract.get_num().then(count => {
+    contract.get_helloworld({"message": "gameofstake.testnet"}).then(count => {
       document.querySelector('#show').classList.replace('loader','number');
       document.querySelector('#show').innerText = count === undefined ? 'calculating...' : count;
       document.querySelector('#left').classList.toggle('eye');
