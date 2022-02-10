@@ -8,32 +8,17 @@ describe('Token', function () {
     near = await nearlib.connect(nearConfig);
     accountId = nearConfig.contractName;
     contract = await near.loadContract(nearConfig.contractName, {
-      viewMethods: ['get_num'],
-      changeMethods: ['increment', 'decrement', 'reset'],
+      viewMethods: ['get_helloworld'],
+      changeMethods: [],
       sender: accountId
     });
   });
 
   describe('counter', function () {
-    it('can be incremented', async function () {
-      const startCounter = await contract.get_num();
-      await contract.increment();
-      const endCounter = await contract.get_num();
-      expect(endCounter).toEqual(startCounter + 1);
-    });
-    it('can be decremented', async function () {
-      await contract.increment();
-      const startCounter = await contract.get_num();
-      await contract.decrement();
-      const endCounter = await contract.get_num();
-      expect(endCounter).toEqual(startCounter - 1);
-    });
-    it('can be reset', async function () {
-      await contract.increment();
-      const startCounter = await contract.get_num();
-      await contract.reset();
-      const endCounter = await contract.get_num();
-      expect(endCounter).toEqual(0);
+    it('can get_helloworld', async function () {
+      const result = await contract.get_helloworld({"message":"gameofstake.testnet"});
+
+      expect(result).toEqual("hello world, gameofstake.testnet");
     });
   });
 });
